@@ -1,0 +1,23 @@
+name: Validate ship-check pack
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - name: Report consistency tests
+        run: node --test tests/*.test.mjs
+      - name: Install pinned portable Lune and verify publisher digest
+        run: |
+          curl --fail --location --retry 2 --output /tmp/lune.zip https://github.com/lune-org/lune/releases/download/v0.11.1/lune-0.11.1-linux-x86_64.zip
+          echo '39859282ce677fce19e6eb45c37596a90a25c324c95b4e7e02d428b6cae294a1  /tmp/lune.zip' | sha256sum --check
+          unzip -q /tmp/lune.zip -d /tmp/ship-check-lune
+          chmod +x /tmp/ship-check-lune/lune
+      - name: Execute actual Luau fixture assertions
+        run: /tmp/ship-check-lune/lune run skills/roblox-ship-check/assets/failure-lab.luau

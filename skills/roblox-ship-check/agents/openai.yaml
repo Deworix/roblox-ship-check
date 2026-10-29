@@ -1,0 +1,4 @@
+interface:
+  display_name: "Roblox Ship Check"
+  short_description: "Reproduce one bug and verify the same test after"
+  default_prompt: "Use $roblox-ship-check to reproduce one Roblox bug and verify a focused fix with the same test."

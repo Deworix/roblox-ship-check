@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1260" viewBox="0 0 2400 1260">
+<rect width="2400" height="1260" fill="#08090c"/>
+<g font-family="Arial, sans-serif">
+<g transform="translate(128 90)"><rect width="58" height="58" rx="13" fill="none" stroke="#86a6ff" stroke-width="4"/><g fill="#86a6ff"><circle cx="19" cy="19" r="4.5"/><circle cx="39" cy="19" r="4.5"/><circle cx="19" cy="39" r="4.5"/><circle cx="39" cy="39" r="4.5"/></g></g>
+<text x="210" y="135" fill="#e8ebf4" font-size="42" font-weight="700">Baseplate / Ship Check</text>
+<text x="2272" y="132" text-anchor="end" fill="#86a6ff" font-size="28" letter-spacing="3">FREE · OPEN SOURCE · MIT</text>
+<path d="M128 202H2272" stroke="#2b3140" stroke-width="2"/>
+<text x="128" y="412" fill="#e8ebf4" font-size="132" font-weight="700" letter-spacing="-6">“Fixed” is not a test.</text>
+<text x="128" y="527" fill="#a8afc0" font-size="46">One Roblox bug. Same steps. Evidence before and after.</text>
+<g transform="translate(128 642)">
+<rect width="2144" height="264" rx="22" fill="#10131b" stroke="#30384b" stroke-width="2"/>
+<path d="M714 35V229M1429 35V229" stroke="#30384b" stroke-width="2"/>
+<text x="42" y="70" fill="#86a6ff" font-size="28" letter-spacing="2">01 / FAILED LOAD</text>
+<text x="42" y="141" fill="#e8ebf4" font-size="43" font-weight="700">Don’t save defaults.</text>
+<text x="42" y="204" fill="#a8afc0" font-size="30">Failure ≠ a new player.</text>
+<text x="756" y="70" fill="#86a6ff" font-size="28" letter-spacing="2">02 / REPLAYED PURCHASE</text>
+<text x="756" y="141" fill="#e8ebf4" font-size="43" font-weight="700">Charge once.</text>
+<text x="756" y="204" fill="#a8afc0" font-size="30">Same request, same result.</text>
+<text x="1471" y="70" fill="#86a6ff" font-size="28" letter-spacing="2">03 / EARLIER CHECKPOINT</text>
+<text x="1471" y="141" fill="#e8ebf4" font-size="43" font-weight="700">Keep the progress.</text>
+<text x="1471" y="204" fill="#a8afc0" font-size="30">Stage 3 stays stage 3.</text>
+</g>
+<text x="128" y="1011" fill="#3fd9a2" font-size="30">26 EXECUTED LUAU FIXTURE ASSERTIONS · NOT A TEST OF YOUR GAME</text>
+<path d="M128 1073H2272" stroke="#2b3140" stroke-width="2"/>
+<text x="128" y="1161" fill="#e8ebf4" font-size="39" font-family="Consolas, monospace">npx skills add Deworix/roblox-ship-check</text>
+<text x="2272" y="1161" text-anchor="end" fill="#a8afc0" font-size="28">No signup.</text>
+</g></svg>

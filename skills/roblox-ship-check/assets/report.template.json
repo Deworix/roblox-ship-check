@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "subject": "owned-project",
+  "scope": "Describe one observable behavior without private project data",
+  "result": "not-run",
+  "runtime": "none",
+  "test": {
+    "steps": ["Replace with the exact reproducible player actions or function calls"],
+    "expected": "Replace with the explicit assertion"
+  },
+  "before": {
+    "revision": "",
+    "executed": false,
+    "outcome": "not-run",
+    "observed": "",
+    "evidence": []
+  },
+  "after": {
+    "revision": "",
+    "executed": false,
+    "outcome": "not-run",
+    "observed": "",
+    "evidence": []
+  },
+  "remainingChecks": ["Record anything not executed, including a missing Studio connection"]
+}
