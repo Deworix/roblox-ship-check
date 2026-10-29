@@ -1,8 +1,8 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile,mkdtemp,writeFile,unlink,rmdir} from 'node:fs/promises';
+import {readFile,mkdtemp,writeFile,unlink,rmdir,symlink} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
-import {join} from 'node:path';
+import {join,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {validateReport} from '../skills/roblox-ship-check/scripts/check-report.mjs';
@@ -33,6 +33,7 @@ async function cleanSingleTestFile(folder, path) {
   await rmdir(folder); // Fails rather than recursively removing unexpected contents.
 }
 test('CLI help succeeds without reading a report',()=>{const r=spawnSync(process.execPath,[checker,'--help'],{encoding:'utf8'});assert.equal(r.status,0);assert.match(r.stdout,/Usage:/);});
+test('CLI executes when the skill directory is installed through a link',async t=>{const folder=await mkdtemp(join(tmpdir(),'ship-check-link-'));const link=join(folder,'linked scripts');await symlink(dirname(checker),link,process.platform==='win32'?'junction':'dir');t.after(async()=>{if(process.platform==='win32')await rmdir(link);else await unlink(link);await rmdir(folder);});const input=fileURLToPath(new URL('../skills/roblox-ship-check/assets/report.template.json',import.meta.url));const r=spawnSync(process.execPath,[join(link,'check-report.mjs'),input],{encoding:'utf8'});assert.equal(r.status,0,r.stderr);assert.equal(JSON.parse(r.stdout).valid,true);});
 test('CLI reads a Unicode path and UTF-8 BOM',async t=>{const folder=await mkdtemp(join(tmpdir(),'ship-check-'));const path=join(folder,'wynik próby.json');t.after(()=>cleanSingleTestFile(folder,path));await writeFile(path,'\uFEFF'+JSON.stringify(template));const r=spawnSync(process.execPath,[checker,path],{encoding:'utf8'});assert.equal(r.status,0,r.stderr);assert.equal(JSON.parse(r.stdout).valid,true);});
 test('CLI rejects malformed JSON',async t=>{const folder=await mkdtemp(join(tmpdir(),'ship-check-'));const path=join(folder,'invalid.json');t.after(()=>cleanSingleTestFile(folder,path));await writeFile(path,'{not a report');const r=spawnSync(process.execPath,[checker,path],{encoding:'utf8'});assert.equal(r.status,1);assert.equal(JSON.parse(r.stderr).valid,false);});
 test('CLI bounds the chosen input file',async t=>{const folder=await mkdtemp(join(tmpdir(),'ship-check-'));const path=join(folder,'large.json');t.after(()=>cleanSingleTestFile(folder,path));await writeFile(path,' '.repeat(256*1024+1));const r=spawnSync(process.execPath,[checker,path],{encoding:'utf8'});assert.equal(r.status,1);assert.match(JSON.parse(r.stderr).error,/256 KiB/);});

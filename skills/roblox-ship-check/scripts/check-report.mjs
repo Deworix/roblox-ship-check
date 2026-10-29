@@ -1,5 +1,5 @@
-import {open} from 'node:fs/promises';
-import {pathToFileURL} from 'node:url';
+import {open,realpath} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
 
 export function validateReport(report) {
   const issues = [];
@@ -66,6 +66,7 @@ async function main() {
   if (issues.length) process.exitCode = 1;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+const invokedFile = process.argv[1] ? await realpath(process.argv[1]).catch(()=>null) : null;
+if (invokedFile && invokedFile === await realpath(fileURLToPath(import.meta.url))) {
   main().catch(error => { console.error(JSON.stringify({valid:false,error:error.message})); process.exitCode = 1; });
 }

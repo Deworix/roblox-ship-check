@@ -4,7 +4,7 @@ description: Reproduce one Roblox/Luau bug, review a focused fix, and rerun the 
 license: MIT
 metadata:
   author: Baseplate
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 Help the developer establish whether one agreed behavior improved. Keep their existing agent, tooling and project setup. This skill adds no connection, permission or product requirement.
