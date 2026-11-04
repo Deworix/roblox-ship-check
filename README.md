@@ -28,6 +28,10 @@ Then ask:
 
 The skill uses the tools already available to your agent. It does not connect to Studio by itself. No access means a clear blocker, not an invented PASS.
 
+## Use Roblox Studio Assistant
+
+Already working in the built-in Assistant? [Copy the Studio Assistant version](skills/roblox-ship-check/references/studio-assistant.md) into Assistant’s Skills settings, or paste the one-time prompt. Start with the same regression workflow without adding a desktop tool or server.
+
 ## Run the Player Two Test in Studio
 
 **You opened the vault. Why did your teammate get the popup?** If a shop, quest or access panel should open for just one player, try it with two clients. [Use the test card](skills/roblox-ship-check/references/recipes.md#player-two-test) to check both screens, swap who interacts, and repeat the same steps after a fix. You can start with a local copy of your game and Studio alone.
