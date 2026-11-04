@@ -28,6 +28,10 @@ Then ask:
 
 The skill uses the tools already available to your agent. It does not connect to Studio by itself. No access means a clear blocker, not an invented PASS.
 
+## Run the Player Two Test in Studio
+
+**You opened the vault. Why did your teammate get the popup?** If a shop, quest or access panel should open for just one player, try it with two clients. [Use the test card](skills/roblox-ship-check/references/recipes.md#player-two-test) to check both screens, swap who interacts, and repeat the same steps after a fix. You can start with a local copy of your game and Studio alone.
+
 ## Try the failure lab without AI
 
 Open [failure-lab.luau](skills/roblox-ship-check/assets/failure-lab.luau). It is self-contained Luau using tables, functions and assertions only. No services, DataStores, HTTP requests or place edits.

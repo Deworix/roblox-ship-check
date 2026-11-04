@@ -25,3 +25,27 @@ Observable invariant: reaching stage 3, touching stage 1 and respawning keeps th
 Start with a pure progression transition, including equal stages and invalid input. Then run the real touch/respawn sequence in the copied Studio game, observe the character's actual location/state and compare against an explicit tolerance. Do not substitute an assignment to the stage value for the player touching a checkpoint.
 
 The lab checks the numeric transition only. It does not exercise touch events, respawn positions, persistence or multiplayer authority. A server must also establish that reaching that stage is legitimate; the increasing-number guard alone is not an anti-exploit system.
+
+## Player Two Test
+
+**You opened the vault. Why did your teammate get the popup?** Pick one interaction whose UI should belong only to the player who uses it. A vault panel, personal quest prompt or shop menu works. Write down the rule first. A public announcement or a door everyone should see needs a different check.
+
+![Player Two Test diagram. A uses the vault and sees the panel. B waits, sees no panel, and keeps their controls. Swap roles and repeat.](../../../media/player-two-test.svg)
+
+On a local copy, choose **Server & Clients → 2** and start the session. Label the windows A and B. Give both players access for the first two runs. Place the observer where they can see whether their controls or UI change. Clear both panels before each run, or restart with the same setup. [Roblox Studio testing modes](https://create.roblox.com/docs/studio/testing-modes#multi-client-simulation)
+
+| Do this | A should see | B should see |
+| --- | --- | --- |
+| A uses the interaction while B waits | Panel opens | Panel stays closed and controls still work |
+| B uses the interaction while A waits | Panel stays closed and controls still work | Panel opens |
+| A tries after losing the required access, if your game has this rule | Panel stays closed | Panel stays closed |
+
+Record what actually happened on **both** screens. If both panels open, trace the code that opens the UI. If it comes from the server, check whether a private message is sent with `FireAllClients()` and whether `FireClient(player, …)` is appropriate. Keep eligibility on the server and derive the recipient from the interaction's player. A change in who receives a popup does not itself fix authorization. [Roblox remote events](https://create.roblox.com/docs/scripting/events/remote) · [Client/server boundary](https://create.roblox.com/docs/scripting/security/client-server-boundary)
+
+Paste into your agent if you want help:
+
+> Trace how this private panel opens. Keep my two-client test steps unchanged. Show where the server checks eligibility and how the recipient is chosen. Propose the smallest change, then have me compare both clients in Studio. If either screen wasn't observed, leave that result unverified.
+
+Repeat with the same player roles, positions and access. Save one before/after pair showing both screens. The check passes when the eligible actor sees their panel, the observer's UI and controls are unchanged, and a denied interaction opens no panel if that rule applies. This is a manual Studio check and is separate from the in-memory lab.
+
+Stuck tracing the panel? [Send Baseplate the interaction and what each player saw](https://baseplatedev.com/founding-10.html?utm_source=github&utm_medium=resource&utm_campaign=player_two_test_20261104) for free written help. A short description is enough.

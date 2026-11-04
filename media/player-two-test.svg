@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-labelledby="title desc">
+  <title id="title">The Player Two Test for Roblox Studio</title>
+  <desc id="desc">Expected result for a private vault interaction. Player A opens the vault panel. Player B's screen and controls stay unchanged. Swap players and repeat.</desc>
+  <rect width="1200" height="675" fill="#0c1017"/>
+  <path d="M0 0H1200V8H0z" fill="#91a8fc"/>
+  <g font-family="Arial, sans-serif">
+    <g fill="#aebffc">
+      <rect x="61" y="56" width="29" height="29" rx="7" fill="none" stroke="#91a8fc" stroke-width="2"/>
+      <circle cx="70" cy="65" r="2.5"/><circle cx="81" cy="65" r="2.5"/><circle cx="70" cy="76" r="2.5"/><circle cx="81" cy="76" r="2.5"/>
+      <text x="104" y="77" font-size="17" font-weight="700" letter-spacing="2">BASEPLATE / ROBLOX SHIP CHECK</text>
+    </g>
+    <text x="60" y="160" fill="#f5f7ff" font-size="67" font-weight="700">You opened the vault.</text>
+    <text x="60" y="228" fill="#b8c7ff" font-size="52" font-weight="700">Why did your teammate get the popup?</text>
+    <text x="62" y="294" fill="#acb7cc" font-size="20" font-weight="700" letter-spacing="2">PLAYER TWO TEST · EXPECTED OUTCOME</text>
+
+    <rect x="61" y="322" width="523" height="188" rx="14" fill="#172138" stroke="#4e629e"/>
+    <text x="88" y="369" fill="#b8c7ff" font-size="20" font-weight="700" letter-spacing="2">A / USES THE VAULT</text>
+    <text x="88" y="433" fill="#f5f7ff" font-size="43" font-weight="700">Panel opens</text>
+    <text x="89" y="475" fill="#c1cde6" font-size="23">Check that the action still works.</text>
+
+    <rect x="612" y="322" width="527" height="188" rx="14" fill="#142823" stroke="#39685a"/>
+    <text x="640" y="369" fill="#9de6c5" font-size="20" font-weight="700" letter-spacing="2">B / DOES NOTHING</text>
+    <text x="640" y="433" fill="#f3fff9" font-size="43" font-weight="700">Panel stays closed</text>
+    <text x="641" y="475" fill="#bfdcd1" font-size="23">Check that their controls still work.</text>
+
+    <text x="61" y="574" fill="#f5f7ff" font-size="28" font-weight="700">Studio → Server &amp; Clients → 2. Then swap roles.</text>
+    <path d="M61 604H1139" stroke="#39445a"/>
+    <text x="61" y="642" fill="#b8c7ff" font-size="20">github.com/Deworix/roblox-ship-check</text>
+    <text x="1139" y="642" fill="#acb7cc" font-size="20" text-anchor="end">Test diagram · Free MIT guide</text>
+  </g>
+</svg>
