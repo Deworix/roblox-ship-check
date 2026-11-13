@@ -49,3 +49,17 @@ Paste into your agent if you want help:
 Repeat with the same player roles, positions and access. Save one before/after pair showing both screens. The check passes when the eligible actor sees their panel, the observer's UI and controls are unchanged, and a denied interaction opens no panel if that rule applies. This is a manual Studio check and is separate from the in-memory lab.
 
 Stuck tracing the panel? [Send Baseplate the interaction and what each player saw](https://baseplatedev.com/founding-10.html?utm_source=github&utm_medium=resource&utm_campaign=player_two_test_20261104) for free written help. A short description is enough.
+
+## Late settings reply
+
+Pick one setting a player can change as soon as the menu opens. Suppose the saved music volume is 30% and the player chooses 75%. Check what the player sees and hears while their saved settings are still loading.
+
+1. On a local copy, make the settings response wait a few seconds and return a fixed test profile with music at 30%. Start with a fake read and record the save requests locally. Roblox Studio's [Network Simulator](https://create.roblox.com/docs/studio/network-simulator) can add playtest latency for a separate realistic check. A controlled delay at the settings response makes this order repeatable.
+2. Open the menu before the reply arrives. If it is editable, choose 75%. Wait for the reply and any save debounce. Record the displayed volume, applied volume and requested save value.
+3. Repeat with the reply arriving first, then choose 75%. Compare the same three observations. Add a second saved preference you never touch and check that it retains its saved value.
+
+For an immediately editable menu, the late reply should preserve the explicit change to 75% and load the other preferences. If editing must wait, show a loading state and enable the controls only when the data is ready. The edit after loading should still work. Also try a failed load and check that the UI gives a way to recover without saving a default snapshot over existing settings.
+
+This test can show which value was displayed, applied and sent to the server. To check persistence, run a separate rejoin test with isolated test data. Record that result separately from the save request.
+
+If the menu still jumps back, [send the sequence to Baseplate for free written help](https://baseplatedev.com/founding-10.html?utm_source=github&utm_medium=resource&utm_campaign=late_settings_reply_20261113#apply).

@@ -36,6 +36,8 @@ Already working in the built-in Assistant? [Copy the Studio Assistant version](s
 
 **You opened the vault. Why did your teammate get the popup?** If a shop, quest or access panel should open for just one player, try it with two clients. [Use the test card](skills/roblox-ship-check/references/recipes.md#player-two-test) to check both screens, swap who interacts, and repeat the same steps after a fix. You can start with a local copy of your game and Studio alone.
 
+If a player changes a setting while their profile is loading, can the reply undo the change? [Test a late settings reply](skills/roblox-ship-check/references/recipes.md#late-settings-reply) with one slider or toggle on a local copy.
+
 ## Try the failure lab without AI
 
 Open [failure-lab.luau](skills/roblox-ship-check/assets/failure-lab.luau). It is self-contained Luau using tables, functions and assertions only. No services, DataStores, HTTP requests or place edits.
