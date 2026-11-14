@@ -38,6 +38,8 @@ Already working in the built-in Assistant? [Copy the Studio Assistant version](s
 
 If a player changes a setting while their profile is loading, can the reply undo the change? [Test a late settings reply](skills/roblox-ship-check/references/recipes.md#late-settings-reply) with one slider or toggle on a local copy.
 
+If a player leaves during a reward animation, does the reward survive? [Test a quick rejoin](skills/roblox-ship-check/references/recipes.md#quick-rejoin-after-a-reward) and compare the balance with a normal join.
+
 ## Try the failure lab without AI
 
 Open [failure-lab.luau](skills/roblox-ship-check/assets/failure-lab.luau). It is self-contained Luau using tables, functions and assertions only. No services, DataStores, HTTP requests or place edits.

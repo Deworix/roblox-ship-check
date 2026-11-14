@@ -63,3 +63,15 @@ For an immediately editable menu, the late reply should preserve the explicit ch
 This test can show which value was displayed, applied and sent to the server. To check persistence, run a separate rejoin test with isolated test data. Record that result separately from the save request.
 
 If the menu still jumps back, [send the sequence to Baseplate for free written help](https://baseplatedev.com/founding-10.html?utm_source=github&utm_medium=resource&utm_campaign=late_settings_reply_20261113#apply).
+
+## Quick rejoin after a reward
+
+Pick one reward that is earned before the client finishes showing it, such as offline income with an intro animation. Write down when it becomes irrevocably earned. If the player must actively claim it, start the test after the server accepts that claim. Check the authoritative balance and the saved state that controls whether the same reward can be issued again.
+
+1. Seed a fake profile with balance 100 and a pending reward of 15. On a local copy, let the server reach the earned step, wait for the notification and rejoin. The balance should be 115.
+2. Reset to the identical profile. Leave after the earned step and before the animation or notification finishes. Rejoin after the departure write has settled. The balance should still be 115, and a second rejoin should leave it at 115. Use a fixed clock or disable new accrual so the result measures only the original reward.
+3. Record the server balance, the persisted balance and the reward marker. A saved marker with a balance of 100 points to a lost reward. A balance of 130 points to a duplicate. Repeat the same steps after the fix, including the normal join as a control.
+
+Use a simulated store first. To verify persistence in Roblox, use a separate authorized test experience and test-only player data. Studio with API access enabled can reach the same DataStores as the live game if it is part of that experience. A clean rejoin test does not cover a failed write or overlapping servers. [Roblox DataStore documentation](https://create.roblox.com/docs/cloud-services/data-stores#enable-studio-access)
+
+[Send Baseplate the two observed balances for free written help](https://baseplatedev.com/founding-10.html?utm_source=github&utm_medium=resource&utm_campaign=quick_reward_rejoin_20261114#apply). A short description is enough.
