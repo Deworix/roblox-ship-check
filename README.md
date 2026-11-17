@@ -8,6 +8,10 @@ A free, open Agent Skill from [Baseplate](https://baseplatedev.com/?utm_source=g
 
 This is a small testing workflow and an in-memory Luau lab. It is **not another coding agent, MCP server, production save system or security certification**. No Baseplate installation, signup, API key or payment is required. Your existing AI tool's usage limits still apply.
 
+## Download without an installer
+
+[Download the ZIP](https://github.com/Deworix/roblox-ship-check/releases/download/v0.1.2/roblox-ship-check-0.1.2.zip), extract it, then open `README.md`. Try the self-contained failure lab below, or choose one Studio test card. No AI account is needed for the lab. The release includes a SHA-256 checksum for checking the download.
+
 ## Use it with your agent
 
 Review [the skill](skills/roblox-ship-check/SKILL.md), then install it with the open [skills CLI](https://github.com/vercel-labs/skills):

@@ -1,4 +1,12 @@
-# Validation and limits — 29 October 2026
+# Validation and limits
+
+## 0.1.2 distribution check — 17 November 2026
+
+The direct-download release includes the current Studio Assistant instructions and the Player Two, late-settings-reply and quick-rejoin test cards. The fixture code and report checker are unchanged. The version metadata and README download route are updated.
+
+On Windows, `node --test tests/*.test.mjs` passed 18/18 tests and Lune 0.11.1 ran `skills/roblox-ship-check/assets/failure-lab.luau` with 26/26 fixture assertions. The release ZIP is checked against its source commit, then the extracted copy runs the same checks before publication. These local checks do not establish live Studio, authenticated client sessions or persistent-save behavior.
+
+## Initial checks — 29 October 2026
 
 Author-run checks on Windows x86_64:
 
